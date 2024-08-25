@@ -1,12 +1,16 @@
-# TrafficGuard
-
-**TrafficGuard** is a comprehensive system for monitoring and optimizing network traffic. It includes tools for capturing network traffic, analyzing it, and optimizing traffic flow using HAProxy. Performance is monitored with Prometheus and Grafana.
-
+# TrafficGuard : A comprehensive system for monitoring and optimizing network traffic
 ## Overview
 
 This project provides a comprehensive system for monitoring and optimizing network traffic. It includes tools for capturing network traffic, analyzing it, and optimizing traffic flow using HAProxy. Performance is monitored with Prometheus and Grafana.
 
 ## Installation on Ubuntu
+### Cloning the Repository
+
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/manish3173/TrafficGuard.git
+   cd TrafficGuard
+
 
 ### Monitoring
 
@@ -16,8 +20,7 @@ This project provides a comprehensive system for monitoring and optimizing netwo
      sudo apt update
      sudo apt install tcpdump
      ```
-   - Follow the detailed installation guide [here](monitoring/tcpdump/installation_guide.md).
-
+  
 ### Analysis
 
 1. **Scapy**: Analyzes network traffic.
@@ -27,7 +30,7 @@ This project provides a comprehensive system for monitoring and optimizing netwo
      sudo apt install python3-pip
      pip3 install scapy
      ```
-   - See the installation guide [here](analysis/scapy/installation_guide.md).
+ 
 
 ### Optimization
 
@@ -48,7 +51,7 @@ This project provides a comprehensive system for monitoring and optimizing netwo
      tar xvf prometheus-2.43.0.linux-amd64.tar.gz
      cd prometheus-2.43.0.linux-amd64
      ```
-   - Follow the installation and configuration guide [here](reporting/prometheus/installation_guide.md).
+ .
 
 2. **Grafana**: Visualizes metrics collected by Prometheus.
    - Install Grafana:
@@ -59,7 +62,7 @@ This project provides a comprehensive system for monitoring and optimizing netwo
      sudo apt update
      sudo apt install grafana
      ```
-   - Set up Grafana following the guide [here](reporting/grafana/installation_guide.md).
+ 
 
 ## Usage
 
@@ -84,17 +87,17 @@ This project provides a comprehensive system for monitoring and optimizing netwo
 4. **Monitor Performance**
    - Configure Prometheus and Grafana to monitor and visualize performance metrics.
 
-## Troubleshooting
-
-For common issues and solutions, refer to [troubleshooting.md](docs/troubleshooting.md).
 
 ## Contributing
 
 Feel free to submit issues and pull requests. Contributions are welcome!
 
-## License
+## Contact
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+For questions or support, please contact:
+
+- **Y Manish Kumar**: [ymanishk602@gmail.com](mailto:ymanishk602@gmail.com)
+
 
 ## Acknowledgements
 
