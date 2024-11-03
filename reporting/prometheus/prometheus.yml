@@ -1,4 +1,7 @@
 scrape_configs:
-  - job_name: 'network'
+
+  - job_name: 'my_http_server'
+
     static_configs:
-      - targets: ['localhost:9090']
+
+      - targets: ['localhost:80']
