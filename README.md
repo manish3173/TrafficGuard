@@ -13,18 +13,18 @@ This project provides a comprehensive system for monitoring and optimizing netwo
    ```
 
 
-### Monitoring
+### 1. Monitoring
 
-1. **tcpdump**: Captures network traffic.
+ **tcpdump**: Captures network traffic.
    - Install tcpdump using the following command:
      ```bash
      sudo apt update
      sudo apt install tcpdump
      ```
   
-### Analysis
+### 2. Analysis
 
-1. **Scapy**: Analyzes network traffic.
+ **Scapy**: Analyzes network traffic.
    - Install Scapy using pip:
      ```bash
      sudo apt update
@@ -33,9 +33,9 @@ This project provides a comprehensive system for monitoring and optimizing netwo
      ```
  
 
-### Optimization
+### 3. Optimization
 
-1. **HAProxy**: For load balancing and traffic optimization.
+ **HAProxy**: For load balancing and traffic optimization.
    - Install HAProxy:
      ```bash
      sudo apt update
@@ -43,18 +43,18 @@ This project provides a comprehensive system for monitoring and optimizing netwo
      ```
    - Configure HAProxy using the provided [haproxy.cfg](optimization/haproxy/haproxy.cfg).
 
-### Reporting
+### 4. Reporting
 
-1. **Prometheus**: Collects metrics for performance monitoring.
+ **Prometheus**: Collects metrics for performance monitoring.
    - Download and install Prometheus:
      ```bash
      wget https://github.com/prometheus/prometheus/releases/download/v2.43.0/prometheus-2.43.0.linux-amd64.tar.gz
      tar xvf prometheus-2.43.0.linux-amd64.tar.gz
      cd prometheus-2.43.0.linux-amd64
      ```
- .
+ 
 
-2. **Grafana**: Visualizes metrics collected by Prometheus.
+ **Grafana**: Visualizes metrics collected by Prometheus.
    - Install Grafana:
      ```bash
      sudo apt update
