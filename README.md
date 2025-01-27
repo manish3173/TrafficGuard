@@ -1,5 +1,4 @@
 # TrafficGuard : A comprehensive system for monitoring and optimizing network traffic
-## Overview
 
 This project provides a comprehensive system for monitoring and optimizing network traffic. It includes tools for capturing network traffic, analyzing it, and optimizing traffic flow using HAProxy. Performance is monitored with Prometheus and Grafana.
 
@@ -90,20 +89,13 @@ This project provides a comprehensive system for monitoring and optimizing netwo
 
 
 ## Contributing
-
 Feel free to submit issues and pull requests. Contributions are welcome!
 
 ## Contact
-
 For questions or support, please contact:
 
 - **Y Manish Kumar**: [ymanishk602@gmail.com](mailto:ymanishk602@gmail.com)
 
+## License
+This project is licensed under the MIT License.
 
-## Acknowledgements
-
-- [tcpdump](https://www.tcpdump.org/)
-- [Scapy](https://scapy.net/)
-- [HAProxy](http://www.haproxy.org/)
-- [Prometheus](https://prometheus.io/)
-- [Grafana](https://grafana.com/)
