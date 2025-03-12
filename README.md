@@ -3,89 +3,79 @@
 This project provides a comprehensive system for monitoring and optimizing network traffic. It includes tools for capturing network traffic, analyzing it, and optimizing traffic flow using HAProxy. Performance is monitored with Prometheus and Grafana.
 
 ## Installation on Ubuntu
-### Cloning the Repository
 
-1. **Clone the Repository**
+### Step-by-Step Installation
+1. Clone the Repository
    ```bash
    git clone https://github.com/manish3173/TrafficGuard.git
    cd TrafficGuard
    ```
+2. Install Monitoring Tools
+   ```bash
+   sudo apt update
+   sudo apt install tcpdump -y
+   ```
+3. Install Analysis Tools
+   ```bash
+   sudo apt install python3-pip -y
+   pip3 install scapy prometheus-client psutil
+   ```
+4. Install Optimization Tools
+   ```bash
+   sudo apt install haproxy -y
+   cp config/haproxy.cfg /etc/haproxy/haproxy.cfg
+   sudo systemctl restart haproxy
+   ```
+5. Install Reporting Tools
+   ```bash
+   # Install Prometheus
+   wget https://github.com/prometheus/prometheus/releases/download/v2.43.0/prometheus-2.43.0.linux-amd64.tar.gz
+   tar xvf prometheus-2.43.0.linux-amd64.tar.gz
+   mv prometheus-2.43.0.linux-amd64 /opt/prometheus
 
-
-### 1. Monitoring
-
- **tcpdump**: Captures network traffic.
-   - Install tcpdump using the following command:
-     ```bash
-     sudo apt update
-     sudo apt install tcpdump
-     ```
-  
-### 2. Analysis
-
- **Scapy**: Analyzes network traffic.
-   - Install Scapy using pip:
-     ```bash
-     sudo apt update
-     sudo apt install python3-pip
-     pip3 install scapy
-     ```
- 
-
-### 3. Optimization
-
- **HAProxy**: For load balancing and traffic optimization.
-   - Install HAProxy:
-     ```bash
-     sudo apt update
-     sudo apt install haproxy
-     ```
-   - Configure HAProxy using the provided [haproxy.cfg](optimization/haproxy/haproxy.cfg).
-
-### 4. Reporting
-
- **Prometheus**: Collects metrics for performance monitoring.
-   - Download and install Prometheus:
-     ```bash
-     wget https://github.com/prometheus/prometheus/releases/download/v2.43.0/prometheus-2.43.0.linux-amd64.tar.gz
-     tar xvf prometheus-2.43.0.linux-amd64.tar.gz
-     cd prometheus-2.43.0.linux-amd64
-     ```
- 
-
- **Grafana**: Visualizes metrics collected by Prometheus.
-   - Install Grafana:
-     ```bash
-     sudo apt update
-     sudo apt install -y software-properties-common
-     sudo add-apt-repository "deb https://packages.grafana.com/oss/deb stable main"
-     sudo apt update
-     sudo apt install grafana
-     ```
- 
+   # Install Grafana
+   sudo apt update
+   sudo apt install -y software-properties-common
+   sudo add-apt-repository "deb https://packages.grafana.com/oss/deb stable main"
+   sudo apt update
+   sudo apt install grafana -y
+   sudo systemctl start grafana-server
+   ```
 
 ## Usage
+- Start the Monitoring System
+  ```bash
+  ./start_monitor.sh
+  ```
+- Analyze a PCAP File
+  ```bash
+  python3 src/analyze_traffic.py path/to/your.pcap -o analysis_results.txt
+  ```
+- Capture Traffic Manually
+  ```bash
+  sudo python3 src/capture_traffic.py --interface eth0 --duration 300 --output pcaps/capture.pcap --filter "not port 22"
+  ```
+- Access Monitoring Interfaces
+  - Metrics Server: http://localhost:8000
+  - Prometheus: http://localhost:9090
+  - HAProxy Stats: http://localhost:8404/stats (username: admin, password: adminpassword)
 
-1. **Capture Network Traffic**
-   - Run `capture_traffic.py` to start capturing network packets:
-     ```bash
-     python3 capture_traffic.py
-     ```
+## Configuration
+### HAProxy Configuration
+Edit config/haproxy.cfg to:
+- Add backend servers
+- Modify load balancing algorithms
+- Configure health checks
+- Set security parameters
 
-2. **Analyze Traffic**
-   - Use `analysis_script.py` to analyze the captured data:
-     ```bash
-     python3 analysis_script.py
-     ```
+### Prometheus Configuration
+Modify config/prometheus.yml to:
+- Add additional monitoring targets
+- Configure alerting rules
+- Adjust scraping intervals
 
-3. **Optimize Traffic**
-   - Configure HAProxy using `haproxy.cfg` and start it:
-     ```bash
-     sudo systemctl restart haproxy
-     ```
+ 
 
-4. **Monitor Performance**
-   - Configure Prometheus and Grafana to monitor and visualize performance metrics.
 
 
 ## Contributing
