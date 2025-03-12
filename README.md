@@ -60,19 +60,6 @@ This project provides a comprehensive system for monitoring and optimizing netwo
   - Prometheus: http://localhost:9090
   - HAProxy Stats: http://localhost:8404/stats (username: admin, password: adminpassword)
 
-## Configuration
-### HAProxy Configuration
-Edit config/haproxy.cfg to:
-- Add backend servers
-- Modify load balancing algorithms
-- Configure health checks
-- Set security parameters
-
-### Prometheus Configuration
-Modify config/prometheus.yml to:
-- Add additional monitoring targets
-- Configure alerting rules
-- Adjust scraping intervals
 
  
 
