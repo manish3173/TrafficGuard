@@ -62,7 +62,19 @@ This project provides a comprehensive system for monitoring and optimizing netwo
 
 
  
+## Configuration
+### HAProxy Configuration
+Edit `config/haproxy.cfg` to:
+- Add backend servers if needed
+- Modify load balancing algorithms as required
+- Configure health checks
+- Set security parameters
 
+### Prometheus Configuration
+Modify `config/prometheus.yml` to:
+- Add additional monitoring targets if you want more servers
+- Configure alerting rules
+- Adjust scraping intervals
 
 
 ## Contributing
