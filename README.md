@@ -47,21 +47,28 @@ This project provides a comprehensive system for monitoring and optimizing netwo
   ```bash
   ./start_monitor.sh
   ```
-- Analyze a PCAP File
-  ```bash
-  python3 src/analyze_traffic.py path/to/your.pcap -o analysis_results.txt
-  ```
+
 - Capture Traffic Manually
   ```bash
-  sudo python3 src/capture_traffic.py --interface eth0 --duration 300 --output pcaps/capture.pcap --filter "not port 22"
+  sudo python3 src/capture_traffic.py --interface enp0s3 --duration 300 --output pcaps/capture_manual.pcap --filter "not port 22"
+  ```
+- Analyze Captured Traffic
+  ```bash
+  sudo python3 src/analyze_traffic.py pcaps/capture_manual.pcap
+  ```
+- Start Metrics Server
+  ```bash
+  sudo python3 src/metrics_server.py --port 8000 --destinations 8.8.8.8,1.1.1.1
+  ```
+- Start Prometheus
+  ```bash
+  sudo prometheus --config.file=config/prometheus.yml --storage.tsdb.path=prometheus_data
   ```
 - Access Monitoring Interfaces
   - Metrics Server: http://localhost:8000
   - Prometheus: http://localhost:9090
   - HAProxy Stats: http://localhost:8404/stats (username: admin, password: adminpassword)
 
-
- 
 ## Configuration
 ### HAProxy Configuration
 Edit `config/haproxy.cfg` to:
@@ -76,6 +83,21 @@ Modify `config/prometheus.yml` to:
 - Configure alerting rules
 - Adjust scraping intervals
 
+### Connecting Grafana to Prometheus
+1. Log in to Grafana at http://localhost:3000.
+2. Go to the Configuration (gear icon) > Data Sources > Add data source.
+3. Search for Prometheus, select it, and configure:
+   - Name: Prometheus
+   - URL: http://localhost:9090
+   - Access: Browser
+   - Scrape Interval: 15s
+4. Click Save & Test to verify the connection.
+
+### Creating a Dashboard in Grafana
+1. Click the "+" icon in the sidebar and select Dashboard.
+2. Click Add new panel.
+3. In the Metrics tab, click Add query.
+4. Select the Prometheus data source and enter a PromQL query to visualize your metrics.
 
 ## Contributing
 Feel free to submit issues and pull requests. Contributions are welcome!
@@ -87,4 +109,3 @@ For questions or support, please contact:
 
 ## License
 This project is licensed under the MIT License.
-
