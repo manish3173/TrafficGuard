@@ -43,12 +43,10 @@ This project provides a comprehensive system for monitoring and optimizing netwo
    ```
 
 ## Usage
-- Start the Monitoring System
-  ```bash
-  ./start_monitor.sh
-  ```
 
-- Capture Traffic Manually
+
+
+- Capture Traffic 
   ```bash
   sudo python3 src/capture_traffic.py --interface enp0s3 --duration 300 --output pcaps/capture_manual.pcap --filter "not port 22"
   ```
